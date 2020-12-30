@@ -9,6 +9,8 @@ import {
 } from './testData.json';
 import log from 'loglevel';
 import { mockAxios } from '../testUtils/mockUtils';
+import { objectOf } from 'prop-types';
+import { util } from 'prettier';
 
 const DUST_VALUE_DFI = '0.00000546';
 const DUST_VALUE_FI = '546';
@@ -236,5 +238,154 @@ describe('utility', () => {
     );
     expect(isValid).toBeFalsy();
     expect(spy).toBeCalledTimes(1);
+  });
+
+  it('should return parsedCoinPriceData', async () => {
+    const data = await utility.parsedCoinPriceData();
+    expect(Object.keys(data)).toEqual(
+      Object.keys(expected.parsedCoinPriceData)
+    );
+  });
+
+  it('should return total Blocks', async () => {
+    const result = await utility.getTotalBlocks();
+    expect(typeof result.data).toBe('number');
+  });
+
+  it('should return Icon corresponding to symbol when symbol is valid', () => {
+    const symbols = ['BTC', 'ETH', 'USDT', 'DFI'];
+    const result = symbols.map((symbol) => utility.getIcon(symbol));
+    expect(result).toStrictEqual([
+      'test-file-stub',
+      'test-file-stub',
+      'test-file-stub',
+      'test-file-stub',
+    ]);
+  });
+
+  it('should fail when symbol is invalid', () => {
+    const result = utility.getIcon('ABC');
+    expect(result).toBe(undefined);
+  });
+
+  it('should return prices in USD of currency for valid currency', async () => {
+    const symbols = ['BTC', 'ETH', 'USDT', 'DFI'];
+    let result: object[] = [];
+    for (const symbol of symbols) {
+      const data = await utility.getCoinPriceInUSD(symbol);
+      result = [...result, data];
+    }
+    expect(result).toEqual(expected.getCoinPriceInUSD);
+  });
+
+  it('should return number with commas in case of valid number', () => {
+    const result = utility.numberWithCommas(1235430000);
+    expect(result).toBe('1,235,430,000');
+  });
+
+  it('should return number with commas and string as suffix in case of number followed by suffic string', () => {
+    const result = utility.numberWithCommas('123543ABC');
+    expect(result).toBe('123,543ABC');
+  });
+
+  it('should return number with commas and string as prefix in case of prefix string followed by number', () => {
+    const result = utility.numberWithCommas('ABC123543');
+    expect(result).toBe('ABC123,543');
+  });
+
+  it('should return random number', () => {
+    const result = utility.getRandomNumber(9, 20);
+    expect(typeof result).toBe('number');
+    expect(result).toBeGreaterThanOrEqual(9);
+    expect(result).toBeLessThanOrEqual(20);
+  });
+
+  it('should return network info for valid netwrork type: TEST', () => {
+    const result = utility.getNetworkInfo('test');
+    expect(Object.keys(result)).toEqual(Object.keys(expected.getNetworkInfo));
+  });
+
+  it('should return network info for valid netwrork type: MAIN', () => {
+    const result = utility.getNetworkInfo('main');
+    expect(Object.keys(result)).toEqual(Object.keys(expected.getNetworkInfo));
+  });
+
+  it('should count decimals for valid input', () => {
+    const result = utility.countDecimals(123.01234);
+    expect(result).toBe(5);
+  });
+
+  it('should pass when amount is less than dust amount', () => {
+    const result = utility.isLessThanDustAmount(1, 'DFI');
+    expect(result).toBeFalsy();
+  });
+
+  it('should pass when amount is less than dust amount', () => {
+    const result = utility.isLessThanDustAmount(0.00000543, 'DFI');
+    expect(result).toBeTruthy();
+  });
+
+  it('should return array as per page number', () => {
+    const result = utility.paginate(
+      ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'],
+      3,
+      2
+    );
+    expect(result).toEqual(['d', 'e', 'f']);
+  });
+
+  it('should return empty when length of array is less than page size and page number', () => {
+    const result = utility.paginate(['a', 'b', 'c', 'd', 'e'], 3, 3);
+    expect(result).toEqual([]);
+  });
+
+  it('should return mnemonic code', () => {
+    const result = utility.getMnemonicFromObj({
+      1: 'abc',
+      2: 'def',
+      3: 'ghi',
+      4: 'jkl',
+      5: 'lmn',
+      6: 'opq',
+      7: 'rst',
+    });
+    expect(result).toEqual('abc def ghi jkl lmn opq rst');
+  });
+
+  it('should return true if mnemonicCode is valid', () => {
+    const result = utility.isValidMnemonic(
+      'lab rescue lunch elbow recall phrase perfect donkey biology guess moment husband'
+    );
+    expect(result).toBeTruthy();
+  });
+
+  it('should return false if mnemonicCode is invalid', () => {
+    const result = utility.isValidMnemonic('abc def ghi jkl lmn opq rst');
+    expect(result).toBeFalsy();
+  });
+
+  it('should return mnemonic object', () => {
+    const result = utility.getMnemonicObject();
+    expect(Object.keys(result)).toEqual(['mnemonicObj', 'mnemonicCode']);
+  });
+
+  it('should return object from string array', () => {
+    const result = utility.getObjectFromArrayString([
+      'abc',
+      'def',
+      'ghi',
+      'jkl',
+    ]);
+    expect(result).toEqual({ '1': 'abc', '2': 'def', '3': 'ghi', '4': 'jkl' });
+  });
+
+  it('should return rpc method name if query is valid', () => {
+    const result = utility.getRpcMethodName('getBalance');
+    expect(result).toBe('getBalance');
+  });
+
+  it('should return only rpc method name if query is valid and exclude defi-cli', () => {
+    const result = utility.getRpcMethodName('defi-cli getBalance');
+    expect(result).toBe('getBalance');
   });
 });
