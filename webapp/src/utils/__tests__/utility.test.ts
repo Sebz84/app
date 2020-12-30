@@ -271,9 +271,11 @@ describe('utility', () => {
   it('should return prices in USD of currency for valid currency', async () => {
     const symbols = ['BTC', 'ETH', 'USDT', 'DFI'];
     let result: object[] = [];
-    for (const symbol of symbols) {
-      const data = await utility.getCoinPriceInUSD(symbol);
-      result = [...result, data];
+    for (const symbol in symbols) {
+      if (symbols.hasOwnProperty(symbol)) {
+        const data = await utility.getCoinPriceInUSD(symbol);
+        result = [...result, data];
+      }
     }
     expect(result).toEqual(expected.getCoinPriceInUSD);
   });
