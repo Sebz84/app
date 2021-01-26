@@ -3,7 +3,7 @@ import * as log from '../../utils/electronLogger';
 import cloneDeep from 'lodash/cloneDeep';
 import isEmpty from 'lodash/isEmpty';
 import { shutDownBinary } from '../../worker/queue';
-import { I18n } from 'react-redux-i18n';
+
 import {
   fetchMasternodesRequest,
   fetchMasternodesSuccess,
@@ -29,6 +29,7 @@ import { getErrorMessage } from '../../utils/utility';
 
 import { restartNode, isElectron } from '../../utils/isElectron';
 import { RESIGNED_STATE } from '../../constants';
+import I18n from 'i18next';
 
 export function* getConfigurationDetails() {
   const { configurationData } = yield select((state) => state.app);

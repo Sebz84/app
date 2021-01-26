@@ -11,7 +11,7 @@ import {
   DropdownItem,
 } from 'reactstrap';
 import { connect } from 'react-redux';
-import { I18n } from 'react-redux-i18n';
+
 import EllipsisText from 'react-ellipsis-text';
 import { MdMoreHoriz, MdDelete, MdAccessTime } from 'react-icons/md';
 import styles from './PaymentRequests.module.scss';
@@ -23,6 +23,7 @@ import {
 } from '../../../../constants';
 import Pagination from '../../../../components/Pagination';
 import { getAmountInSelectedUnit } from '../../../../utils/utility';
+import I18n from 'i18next';
 
 interface PaymentRequestsProps {
   unit: string;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import BlockchainTable from './components/BlockchainTable';
-import { I18n } from 'react-redux-i18n';
+
 import Header from '../HeaderComponent';
 import { MdLaunch } from 'react-icons/md';
 import { ButtonGroup, Button } from 'reactstrap';
@@ -12,6 +12,7 @@ import {
   MAIN,
 } from '../../constants';
 import { getNetworkType, getPageTitle } from '../../utils/utility';
+import I18n from 'i18next';
 
 const BlockchainPage = () => {
   const explorerLink =

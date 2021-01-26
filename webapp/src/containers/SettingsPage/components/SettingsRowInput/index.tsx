@@ -6,10 +6,11 @@ import {
   InputGroupAddon,
   InputGroupText,
 } from 'reactstrap';
-import { I18n } from 'react-redux-i18n';
-import { connect } from 'react-redux';
 
-const SettingsRowInput = props => {
+import { connect } from 'react-redux';
+import I18n from 'i18next';
+
+const SettingsRowInput = (props) => {
   const {
     id,
     name,
@@ -29,7 +30,7 @@ const SettingsRowInput = props => {
         id={`${id}`}
         placeholder={`${placeholder}`}
         value={field || ''}
-        onChange={event => handleInputs(event, `${fieldName}`)}
+        onChange={(event) => handleInputs(event, `${fieldName}`)}
       />
       <Label for='pruneTo'>{I18n.t(`containers.settings.${label}`)}</Label>
       {text && (
@@ -43,11 +44,8 @@ const SettingsRowInput = props => {
   );
 };
 
-const mapStateToProps = state => {
-  const { locale } = state.i18n;
-  return {
-    locale,
-  };
+const mapStateToProps = (state) => {
+  return {};
 };
 
 export default connect(mapStateToProps)(SettingsRowInput);

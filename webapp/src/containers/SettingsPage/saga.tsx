@@ -23,7 +23,7 @@ import {
   refreshUtxosAfterSavingData,
 } from './service';
 import store from '../../app/rootStore';
-import { setupI18n } from '../../translations/i18n';
+import { changeLanguage } from '../../translations/i18n';
 import { LANG_VARIABLE } from '../../constants';
 import PersistentStore from '../../utils/persistentStore';
 import { restartNode } from '../../utils/isElectron';
@@ -102,7 +102,7 @@ export function* updateSettings(action) {
     const data = yield call(updateSettingsData, action.payload);
     if (data) {
       if (updateLanguage) {
-        setupI18n(store);
+        changeLanguage(action.payload.language);
       }
       if (data.launchAtLogin) {
         enablePreLaunchStatus(data.minimizedAtLaunch);

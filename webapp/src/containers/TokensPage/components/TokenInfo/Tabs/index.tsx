@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
-import { I18n } from 'react-redux-i18n';
 
 import classnames from 'classnames';
 
@@ -18,6 +17,7 @@ import {
   TOKEN_ANALYSIS,
   TOKEN_COMMENTS,
 } from '../../../../../constants';
+import I18n from 'i18next';
 
 interface TokenInfoTabsProps {
   activeTab: string;

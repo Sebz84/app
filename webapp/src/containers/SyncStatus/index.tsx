@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { MdDone } from 'react-icons/md';
 import styles from './SyncStatus.module.scss';
-import { I18n } from 'react-redux-i18n';
+
 import { connect } from 'react-redux';
 import { syncStatusRequest, syncStatusPeersRequest } from './reducer';
 import { Progress } from 'reactstrap';
@@ -11,6 +11,7 @@ import {
 } from '../WalletPage/reducer';
 import UsePrevious from '../../components/UsePrevious';
 import { BigNumber } from 'bignumber.js';
+import I18n from 'i18next';
 
 interface SyncStatusProps {
   syncedPercentage: number;
@@ -159,7 +160,6 @@ const SyncStatus: React.FunctionComponent<SyncStatusProps> = (
 
 const mapStateToProps = (state) => {
   const {
-    i18n: { locale },
     syncstatus: {
       syncedPercentage,
       latestSyncedBlock,
@@ -178,7 +178,6 @@ const mapStateToProps = (state) => {
     },
   } = state;
   return {
-    locale,
     isLoading,
     latestBlock,
     syncedPercentage,

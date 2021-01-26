@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Button, ButtonGroup } from 'reactstrap';
 import { MdArrowBack, MdAdd } from 'react-icons/md';
 import PaymentRequestList from './PaymentRequestList';
-import { I18n } from 'react-redux-i18n';
+
 import { NavLink as RRNavLink, RouteComponentProps } from 'react-router-dom';
 import {
   WALLET_PAGE_PATH,
@@ -12,6 +12,7 @@ import {
 import Header from '../../../HeaderComponent';
 import { getPageTitle } from '../../../../utils/utility';
 import { getWalletPathAddress } from '../SendPage';
+import I18n from 'i18next';
 
 const ReceivePage: React.FunctionComponent<RouteComponentProps> = (
   props: RouteComponentProps

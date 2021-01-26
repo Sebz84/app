@@ -22,8 +22,8 @@ import {
   WALLET_BACKUP,
 } from '@defi_types/ipcEvents';
 import * as log from '../utils/electronLogger';
-import { I18n } from 'react-redux-i18n';
 import { triggerNodeShutdown } from 'src/worker/queue';
+import I18n from 'i18next';
 
 const initUpdateAppIpcRenderers = () => {
   const ipcRenderer = ipcRendererFunc();

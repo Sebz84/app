@@ -79,7 +79,7 @@ import {
 } from '../containers/WalletPage/service';
 import { handleFetchToken } from '../containers/TokensPage/service';
 import { handleFetchPoolshares } from '../containers/LiquidityPage/service';
-import { I18n } from 'react-redux-i18n';
+
 import openNewTab from './openNewTab';
 import {
   AccountKeyItem,
@@ -87,6 +87,7 @@ import {
   PeerInfoModel,
 } from 'src/constants/rpcModel';
 import { HighestAmountItem } from '../constants/common';
+import I18n from 'i18next';
 
 export const validateSchema = (schema, data) => {
   const ajv = new Ajv({ allErrors: true });

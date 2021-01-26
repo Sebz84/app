@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card, CardBody, Col, Row } from 'reactstrap';
-import { I18n } from 'react-redux-i18n';
 
 import styles from '../TokenCard.module.scss';
 import { ITokenCard } from '../../../utils/interfaces';
 import VerifiedIcon from '../../../assets/svg/verified-icon.svg';
 
 import TokenAvatar from '../../TokenAvatar';
+import I18n from 'i18next';
 
 const TokenCard: React.FunctionComponent<ITokenCard> = (props: ITokenCard) => {
   const { data } = props;

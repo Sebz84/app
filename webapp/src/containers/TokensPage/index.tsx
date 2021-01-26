@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink as RRNavLink } from 'react-router-dom';
-import { I18n } from 'react-redux-i18n';
+
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { MdSearch, MdAdd } from 'react-icons/md';
@@ -31,6 +31,7 @@ import {
 } from '../../constants';
 import Header from '../HeaderComponent';
 import { getPageTitle } from '../../utils/utility';
+import I18n from 'i18next';
 
 interface TokensProps {
   tokens: any;

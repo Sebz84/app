@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { I18n } from 'react-redux-i18n';
+
 import { Row, Col } from 'reactstrap';
 import cloneDeep from 'lodash/cloneDeep';
 
 import LiquidityAccordion from '../../../../components/LiquidityAccordion';
 import { TOKEN_LIST_PAGE_SIZE } from '../../../../constants';
+import I18n from 'i18next';
 
 interface LiquidityListProps {
   poolshares: any;

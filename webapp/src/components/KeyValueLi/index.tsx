@@ -3,8 +3,9 @@ import EllipsisText from 'react-ellipsis-text';
 import CopyToClipboard from '../CopyToClipboard';
 import classnames from 'classnames';
 import QrCode from '../QrCode';
-import { I18n } from 'react-redux-i18n';
+
 import styles from './KeyValueLi.module.scss';
+import I18n from 'i18next';
 
 interface KeyValueLiProps {
   copyable?: boolean | string;

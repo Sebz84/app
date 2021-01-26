@@ -1,8 +1,9 @@
 import React from 'react';
 import { TabPane, Row, Col } from 'reactstrap';
+import I18n from 'i18next';
 import KeyValueLi from '../../../../components/KeyValueLi';
 import StatCard from '../../../../components/StatCard';
-import { I18n } from 'react-redux-i18n';
+
 import { getAmountInSelectedUnit } from '../../../../utils/utility';
 
 interface StatisticsTabProps {

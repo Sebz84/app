@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { I18n } from 'react-redux-i18n';
+
 import {
   UncontrolledDropdown,
   DropdownToggle,
@@ -8,6 +8,7 @@ import {
   Col,
   Row,
 } from 'reactstrap';
+import I18n from 'i18next';
 import { ITokenBalanceInfo } from '../../utils/interfaces';
 import { filterByValueMap, getIcon } from '../../utils/utility';
 import NumberMask from '../NumberMask';

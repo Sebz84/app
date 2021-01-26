@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import EllipsisText from 'react-ellipsis-text';
 import CopyToClipboard from '../../CopyToClipboard';
 import classnames from 'classnames';
-import { I18n } from 'react-redux-i18n';
+
 import styles from './ValueLi.module.scss';
+import I18n from 'i18next';
 
 interface KeyValueLiProps {
   copyable?: boolean | string;

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Progress, ModalBody, Button } from 'reactstrap';
 import { connect } from 'react-redux';
-import { I18n } from 'react-redux-i18n';
+
 import { minimizeDownloadProgressModal } from '../reducer';
 import BigNumber from 'bignumber.js';
+import I18n from 'i18next';
 
 interface DownloadProgressComponentProps {
   updateAppInfo: any;

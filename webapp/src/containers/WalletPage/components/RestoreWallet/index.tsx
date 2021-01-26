@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { MdArrowBack, MdErrorOutline } from 'react-icons/md';
-import { I18n } from 'react-redux-i18n';
+
 import { NavLink, RouteComponentProps } from 'react-router-dom';
 import {
   Button,
@@ -21,6 +21,7 @@ import { connect } from 'react-redux';
 import WalletLoadingFooter from '../../../../components/WalletLoadingFooter';
 import Header from '../../../HeaderComponent';
 import { getPageTitle } from '../../../../utils/utility';
+import I18n from 'i18next';
 
 interface RestoreWalletProps extends RouteComponentProps {
   isWalletRestoring: boolean;

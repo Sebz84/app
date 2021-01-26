@@ -1,6 +1,7 @@
 import React from 'react';
-import { I18n } from 'react-redux-i18n';
+
 import { Button, Row, Col } from 'reactstrap';
+import I18n from 'i18next';
 
 interface SettingsTabsFooterProps {
   saveChanges: () => void;

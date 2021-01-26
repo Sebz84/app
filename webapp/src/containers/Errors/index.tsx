@@ -3,9 +3,10 @@ import { Helmet } from 'react-helmet';
 import ChaplinGif from '../../assets/gif/chaplin.gif';
 import { Row, Col, Button } from 'reactstrap';
 import styles from './ErrorPage.module.scss';
-import { I18n } from 'react-redux-i18n';
+
 import Header from '../HeaderComponent';
 import { getPageTitle } from '../../utils/utility';
+import I18n from 'i18next';
 
 const Error404Page: React.FunctionComponent = (props: any) => {
   const chaplinStyle = {

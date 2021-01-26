@@ -11,7 +11,7 @@ import {
 import { NavLink, RouteComponentProps } from 'react-router-dom';
 import KeyValueLi from '../../../../components/KeyValueLi';
 import BlockTxn from '../BlockTxn';
-import { I18n } from 'react-redux-i18n';
+
 import {
   fetchTxnsRequest,
   fetchBlockDataRequest,
@@ -35,6 +35,7 @@ import {
 import LruCache from '../../../../utils/lruCache';
 import Header from '../../../HeaderComponent';
 import openNewTab from '../../../../utils/openNewTab';
+import I18n from 'i18next';
 
 interface RouteParams {
   id?: string;

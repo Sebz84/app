@@ -22,6 +22,6 @@ const store = configureStore({
 });
 
 startSaga();
-setupI18n(store);
+setupI18n();
 
 export default store;

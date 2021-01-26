@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { I18n } from 'react-redux-i18n';
+
 import { RiErrorWarningLine } from 'react-icons/ri';
 import Loader from '../../../components/Loader';
 import styles from '../popOver.module.scss';
+import I18n from 'i18next';
 
 interface ErrorModalProps {
   isRestart: boolean;

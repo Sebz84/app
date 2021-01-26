@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { I18n } from 'react-redux-i18n';
+
 import { History } from 'history';
 import { Card, Table, CardBody } from 'reactstrap';
 
@@ -18,6 +18,7 @@ import {
   MASTER_NODES_PATH,
   TOKEN_TRANSFERS_LIST_PAGE_SIZE,
 } from '../../../../../constants';
+import I18n from 'i18next';
 
 interface TransfersListProps {
   transfers: TransferObject[];

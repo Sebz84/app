@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import LaunchLogo from '../../../../components/Svg/Launch';
-import { I18n } from 'react-redux-i18n';
+
 import { Button, Input, Row, Col } from 'reactstrap';
 
 import styles from './walletPassphrasePage.module.scss';
+import I18n from 'i18next';
 
 interface WalletPassphraseModelProps {}
 

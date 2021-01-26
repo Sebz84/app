@@ -26,7 +26,7 @@ import { NavLink } from 'react-router-dom';
 import UIfx from 'uifx';
 import QrReader from 'react-qr-reader';
 import classnames from 'classnames';
-import { I18n } from 'react-redux-i18n';
+
 import BigNumber from 'bignumber.js';
 import { fetchSendDataRequest } from '../../reducer';
 import {
@@ -57,6 +57,7 @@ import Header from '../../../HeaderComponent';
 import NumberMask from '../../../../components/NumberMask';
 import SendLPWarning from './SendLPWarning';
 import ViewOnChain from 'src/components/ViewOnChain';
+import I18n from 'i18next';
 const shutterSnap = new UIfx(shutterSound);
 
 interface SendPageProps {

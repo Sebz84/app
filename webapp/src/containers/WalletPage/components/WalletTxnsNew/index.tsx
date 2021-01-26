@@ -15,7 +15,7 @@ import {
   MdCompareArrows,
 } from 'react-icons/md';
 import styles from './WalletTxns.module.scss';
-import { I18n } from 'react-redux-i18n';
+
 import axios from 'axios';
 import {
   fetchWalletTxnsRequest,
@@ -45,6 +45,7 @@ import {
 import BigNumber from 'bignumber.js';
 import ValueLi from '../../../../components/KeyValueLi/ValueLi';
 import CustomPaginationComponent from '../../../../components/CustomPagination';
+import I18n from 'i18next';
 
 interface WalletTxnsProps {
   minBlockHeight: number;

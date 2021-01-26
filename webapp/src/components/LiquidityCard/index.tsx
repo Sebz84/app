@@ -1,5 +1,5 @@
 import React from 'react';
-import { I18n } from 'react-redux-i18n';
+
 import { Card, CardBody, CardFooter, Input, Button } from 'reactstrap';
 import classNames from 'classnames';
 import { ITokenBalanceInfo } from '../../utils/interfaces';
@@ -7,6 +7,7 @@ import { ITokenBalanceInfo } from '../../utils/interfaces';
 import SwapDropdown from '../swapDropdown';
 import styles from './LiquidityCard.module.scss';
 import { BigNumber } from 'bignumber.js';
+import I18n from 'i18next';
 
 interface LiquidityCardProps {
   label: string;

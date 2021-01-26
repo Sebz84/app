@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, CardBody, Col, Row, Button } from 'reactstrap';
-import { I18n } from 'react-redux-i18n';
 
 import styles from '../TokenCard.module.scss';
 import { IWalletTokenCard } from '../../../utils/interfaces';
+import I18n from 'i18next';
 // import Icon from '../../../assets/svg/icon-coin-bitcoin-lapis.svg';
 
 interface WalletAddTokenCardProps {

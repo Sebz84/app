@@ -6,7 +6,7 @@ import {
   withRouter,
   RouteComponentProps,
 } from 'react-router-dom';
-import { I18n } from 'react-redux-i18n';
+
 import { connect } from 'react-redux';
 import {
   MdAccountBalanceWallet,
@@ -44,6 +44,7 @@ import {
   openWalletPassphraseModal,
   lockWalletStart,
 } from '../PopOver/reducer';
+import I18n from 'i18next';
 
 export interface SidebarProps extends RouteComponentProps {
   fetchInstantBalanceRequest: () => void;
@@ -265,9 +266,8 @@ const Sidebar: React.FunctionComponent<SidebarProps> = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { i18n, wallet, settings, popover, swap } = state;
+  const { wallet, settings, popover, swap } = state;
   return {
-    locale: i18n.locale,
     unit: settings.appConfig.unit,
     walletBalance: wallet.walletBalance,
     isErrorModalOpen: popover.isOpen,

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
-import { I18n } from 'react-redux-i18n';
+
 import classnames from 'classnames';
+import I18n from 'i18next';
 
 interface MasternodeTabsProps {
   setActiveTab: (tab: string) => void;

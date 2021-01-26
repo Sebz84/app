@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { I18n } from 'react-redux-i18n';
+
 import { Button, ButtonGroup, Row, Col } from 'reactstrap';
 import {
   MdArrowUpward,
@@ -29,6 +29,7 @@ import styles from './WalletPage.module.scss';
 import TokenAvatar from '../../components/TokenAvatar';
 import Header from '../HeaderComponent';
 import { getWalletPathAddress } from './components/SendPage';
+import I18n from 'i18next';
 
 interface WalletPageProps extends RouteComponentProps {
   unit: string;

@@ -4,9 +4,10 @@ import { MdInfo, MdArrowForward } from 'react-icons/md';
 import styles from './BlockTxn.module.scss';
 import CopyToClipboard from '../../../../components/CopyToClipboard';
 import classnames from 'classnames';
-import { I18n } from 'react-redux-i18n';
+
 import { getAmountInSelectedUnit } from '../../../../utils/utility';
 import { ITxn } from '../../interfaces';
+import I18n from 'i18next';
 
 interface BlockTxnProps {
   txn: ITxn;

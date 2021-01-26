@@ -6,7 +6,7 @@ import {
   MdCheckCircle,
   MdErrorOutline,
 } from 'react-icons/md';
-import { I18n } from 'react-redux-i18n';
+
 import { Button, Col, Modal, ModalBody, Row } from 'reactstrap';
 import { NavLink as RRNavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -51,6 +51,7 @@ import { PaymentRequestModel } from '../../../WalletPage/components/ReceivePage/
 import { AddressModel } from '../../../../model/address.model';
 import NumberMask from '../../../../components/NumberMask';
 import ViewOnChain from 'src/components/ViewOnChain';
+import I18n from 'i18next';
 
 interface AddLiquidityProps {
   location: any;

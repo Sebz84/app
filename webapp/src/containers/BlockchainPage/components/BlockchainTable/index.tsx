@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Card, Table, CardBody } from 'reactstrap';
 import styles from './BlockchainTable.module.scss';
-import { I18n } from 'react-redux-i18n';
+
 import { fetchBlocksRequest } from '../../reducer';
 import { BLOCKCHAIN_BLOCK_BASE_PATH } from '../../../../constants';
 import { BLOCK_PAGE_SIZE } from '../../../../constants/configs';
 import Pagination from '../../../../components/Pagination';
+import I18n from 'i18next';
 
 interface BlockchainTableProps {
   blocks: {
@@ -77,7 +78,7 @@ const BlockchainTable: React.FunctionComponent<BlockchainTableProps> = (
                   </tr>
                 </thead>
                 <tbody>
-                  {props.blocks.map(block => (
+                  {props.blocks.map((block) => (
                     <tr key={block.height}>
                       <td>
                         <Link
@@ -126,7 +127,7 @@ const BlockchainTable: React.FunctionComponent<BlockchainTableProps> = (
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const {
     blocks,
     blockCount,

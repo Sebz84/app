@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { I18n } from 'react-redux-i18n';
+
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 import { MdArrowBack, MdCheck } from 'react-icons/md';
@@ -30,6 +30,7 @@ import {
 } from '../../../../../utils/utility';
 import AddressDropdown from '../../../../../components/AddressDropdown';
 import { CreateTokenFormState } from '..';
+import I18n from 'i18next';
 
 interface CreateDCTProps {
   handleChange: (e) => void;

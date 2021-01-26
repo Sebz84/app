@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { I18n } from 'react-redux-i18n';
+
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 import { MdArrowBack, MdErrorOutline, MdWarning } from 'react-icons/md';
@@ -22,6 +22,7 @@ import { connect } from 'react-redux';
 import WalletLoadingFooter from '../../../../../components/WalletLoadingFooter';
 import Header from '../../../../HeaderComponent';
 import shuffle from 'lodash/shuffle';
+import I18n from 'i18next';
 
 interface VerifyMnemonicProps {
   mnemonicObj: any;

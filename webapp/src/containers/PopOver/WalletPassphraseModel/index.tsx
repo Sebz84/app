@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import defiIcon from '../../../assets/svg/defi-icon.svg';
-import { I18n } from 'react-redux-i18n';
+
 import { Button, Input, Row, Col, Modal, ModalBody } from 'reactstrap';
 import { connect } from 'react-redux';
 
@@ -10,6 +10,7 @@ import {
   closeWalletPassphraseModal,
   unlockWalletStart,
 } from '../../PopOver/reducer';
+import I18n from 'i18next';
 
 interface WalletPassphraseModelProps {
   isWalletPassphraseModalOpen: boolean;

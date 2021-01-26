@@ -1,10 +1,11 @@
 import React from 'react';
-import { I18n } from 'react-redux-i18n';
+
 import { Helmet } from 'react-helmet';
 import Console from './ConsoleComponent';
 import Header from '../HeaderComponent';
 import styles from './Console.module.scss';
 import { getPageTitle } from '../../utils/utility';
+import I18n from 'i18next';
 
 const ConsolePage: React.FunctionComponent = () => {
   return (

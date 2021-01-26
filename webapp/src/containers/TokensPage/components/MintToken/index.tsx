@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { I18n } from 'react-redux-i18n';
+
 import { NavLink, RouteComponentProps } from 'react-router-dom';
 import classnames from 'classnames';
 import { MdArrowBack, MdCheckCircle, MdErrorOutline } from 'react-icons/md';
@@ -32,6 +32,7 @@ import { isEmpty } from 'lodash';
 import Header from '../../../HeaderComponent';
 import { getPageTitle, getSymbolKey } from '../../../../utils/utility';
 import ViewOnChain from 'src/components/ViewOnChain';
+import I18n from 'i18next';
 
 interface RouteParams {
   id?: string;

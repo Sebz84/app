@@ -28,7 +28,7 @@ import {
   handleUnlockWallet,
 } from './service';
 import * as log from '../../utils/electronLogger';
-import { I18n } from 'react-redux-i18n';
+
 import { showErrorNotification } from '../../app/service';
 import PersistentStore from '../../utils/persistentStore';
 import {
@@ -43,6 +43,7 @@ import { backupWallet } from '../../app/update.ipcRenderer';
 import { restartNode } from '../../utils/isElectron';
 import { shutDownBinary } from '../../worker/queue';
 import { setIsWalletCreatedRequest } from '../WalletPage/reducer';
+import I18n from 'i18next';
 
 export function* backupWalletbeforeUpdate() {
   const result = yield call(backupWallet);

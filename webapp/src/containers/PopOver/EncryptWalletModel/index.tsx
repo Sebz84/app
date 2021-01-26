@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { I18n } from 'react-redux-i18n';
+
 import { Button, Input, Row, Col, Modal, ModalBody } from 'reactstrap';
 import { MdLock } from 'react-icons/md';
 import { connect } from 'react-redux';
@@ -9,6 +9,7 @@ import {
   closeEncryptWalletModal,
   encryptWalletStart,
 } from '../../PopOver/reducer';
+import I18n from 'i18next';
 
 interface EncryptWalletModelProps {
   isEnrcyptWalletModalOpen: boolean;

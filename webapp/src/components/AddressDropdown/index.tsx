@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { MdCheck } from 'react-icons/md';
-import { I18n } from 'react-redux-i18n';
 import {
   DropdownToggle,
   DropdownMenu,
@@ -13,6 +12,7 @@ import {
 import { PaymentRequestModel } from '../../containers/WalletPage/components/ReceivePage/PaymentRequestList';
 import styles from './AddressDropdown.module.scss';
 import { AddressModel } from '../../model/address.model';
+import I18n from 'i18next';
 
 export interface AddressDropdownProps {
   formState: AddressModel;

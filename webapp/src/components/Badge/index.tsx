@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdInfo } from 'react-icons/md';
-import { I18n } from 'react-redux-i18n';
+
 import { Button, ButtonProps } from 'reactstrap';
 
 interface BadgeProps extends ButtonProps {

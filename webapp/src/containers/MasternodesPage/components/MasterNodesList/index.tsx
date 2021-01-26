@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Table, CardBody } from 'reactstrap';
 import styles from './MasternodesList.module.scss';
-import { I18n } from 'react-redux-i18n';
+
 import { filterByValue } from '../../../../utils/utility';
 import {
   MASTER_NODES_PATH,
@@ -13,6 +13,7 @@ import Pagination from '../../../../components/Pagination';
 import cloneDeep from 'lodash/cloneDeep';
 import { connect } from 'react-redux';
 import { table } from 'console';
+import I18n from 'i18next';
 
 interface MasternodesListProps {
   searchQuery: string;

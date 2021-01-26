@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { TabPane, Form, FormText, Row, Col } from 'reactstrap';
-import { I18n } from 'react-redux-i18n';
+
 import commaNumber from 'comma-number';
 import SettingsRowDropDown from '../SettingsRowDropDown';
 import { DFI_UNIT_MAP, DEFAULT_UNIT } from '../../../../constants';
 import { getAmountInSelectedUnit } from '../../../../utils/utility';
 import SettingsRowToggle from '../SettingsRowToggle';
+import I18n from 'i18next';
 
 interface SettingsTabProps {
   languages: { label: string; value: string }[];

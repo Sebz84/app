@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { I18n } from 'react-redux-i18n';
+
 import { Button, ButtonGroup } from 'reactstrap';
 import { MdArrowBack, MdDelete } from 'react-icons/md';
 import { NavLink, RouteComponentProps, Redirect } from 'react-router-dom';
@@ -15,6 +15,7 @@ import { removeReceiveTxnsRequest } from '../../reducer';
 import { getPageTitle, getTransactionURI } from '../../../../utils/utility';
 import { getAmountInSelectedUnit } from '../../../../utils/utility';
 import Header from '../../../HeaderComponent';
+import I18n from 'i18next';
 
 interface RouteProps {
   id: string;

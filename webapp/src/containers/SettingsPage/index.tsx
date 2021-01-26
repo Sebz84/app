@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
-import { I18n } from 'react-redux-i18n';
+
 import isEqual from 'lodash/isEqual';
 import {
   getInitialSettingsRequest,
@@ -15,6 +15,7 @@ import SettingsTabGeneral from './components/SettingsTabGeneral';
 import SettingsTabDisplay from './components/SettingsTabDisplay';
 import usePrevious from '../../components/UsePrevious';
 import { getPageTitle } from '../../utils/utility';
+import I18n from 'i18next';
 
 interface SettingsPageProps {
   isFetching: boolean;
@@ -332,14 +333,12 @@ const mapStateToProps = (state) => {
     isRefreshUtxosModalOpen,
   } = state.settings;
   const { isRestart } = state.popover;
-  const { locale } = state.i18n;
   return {
     isFetching,
     settingsError,
     appConfig,
     isUpdating,
     isUpdated,
-    locale,
     isRestart,
     isRefreshUtxosModalOpen,
   };

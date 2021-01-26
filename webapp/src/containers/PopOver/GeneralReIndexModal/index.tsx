@@ -7,8 +7,9 @@ import {
   isRestartLoader,
   restartModal,
 } from '../reducer';
-import { I18n } from 'react-redux-i18n';
+
 import { shutDownBinary } from '../../../worker/queue';
+import I18n from 'i18next';
 
 interface GeneralReIndexModalProps {
   isGeneralReindexModalOpen: boolean;

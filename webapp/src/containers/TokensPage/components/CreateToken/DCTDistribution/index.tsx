@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { I18n } from 'react-redux-i18n';
+
 import { NavLink } from 'react-router-dom';
 import QrReader from 'react-qr-reader';
 import { MdFileUpload, MdAdd, MdArrowBack } from 'react-icons/md';
@@ -16,6 +16,7 @@ import * as log from '../../../../../utils/electronLogger';
 import { TOKENS_PATH, CREATE_DCT } from '../../../../../constants';
 import Header from '../../../../HeaderComponent';
 import { getPageTitle } from '../../../../../utils/utility';
+import I18n from 'i18next';
 
 interface DCTDistributionProps {
   handleActiveTab: (active: string) => void;

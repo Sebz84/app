@@ -3,7 +3,7 @@ import HttpStatus from 'http-status-codes';
 import RpcClient from '../utils/rpc-client';
 import showNotification from '../utils/notifications';
 import * as log from '../utils/electronLogger';
-import { I18n } from 'react-redux-i18n';
+import I18n from 'i18next';
 import { isBlockchainStarted } from '../containers/RpcConfiguration/service';
 import { eventChannel } from 'redux-saga';
 import {

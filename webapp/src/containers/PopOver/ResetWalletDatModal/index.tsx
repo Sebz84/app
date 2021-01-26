@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { I18n } from 'react-redux-i18n';
+
 import { Modal, ModalBody, ModalFooter, Button, Input } from 'reactstrap';
 import {
   closeResetWalletDatModal,
@@ -8,6 +8,7 @@ import {
 } from '../reducer';
 import styles from '../popOver.module.scss';
 import { RESET_WALLET_CONFIRMATION_TEXT } from '../../../constants';
+import I18n from 'i18next';
 
 interface ResetWalletDatModalProps {
   openResetWalletDatModal: boolean;

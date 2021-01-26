@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { MdArrowBack, MdCheckCircle, MdErrorOutline } from 'react-icons/md';
-import { I18n } from 'react-redux-i18n';
+
 import {
   Button,
   Col,
@@ -36,6 +36,7 @@ import { PaymentRequestModel } from '../../../WalletPage/components/ReceivePage/
 import NumberMask from '../../../../components/NumberMask';
 import ViewOnChain from 'src/components/ViewOnChain';
 import { BigNumber } from 'bignumber.js';
+import I18n from 'i18next';
 
 interface RouteParams {
   id?: string;

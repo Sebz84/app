@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardBody, Col, Row } from 'reactstrap';
-import { I18n } from 'react-redux-i18n';
 
 import styles from '../TokenCard.module.scss';
 import { IWalletTokenCard } from '../../../utils/interfaces';
@@ -8,6 +7,7 @@ import { IWalletTokenCard } from '../../../utils/interfaces';
 import TokenAvatar from '../../TokenAvatar';
 import NumberMask from '../../NumberMask';
 import BigNumber from 'bignumber.js';
+import I18n from 'i18next';
 
 interface WalletTokenCardProps {
   token: IWalletTokenCard;

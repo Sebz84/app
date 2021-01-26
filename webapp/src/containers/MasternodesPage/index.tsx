@@ -5,7 +5,7 @@ import { MdSearch, MdAdd, MdCheckCircle, MdErrorOutline } from 'react-icons/md';
 import classnames from 'classnames';
 import SearchBar from '../../components/SearchBar';
 import MasternodesList from './components/MasterNodesList';
-import { I18n } from 'react-redux-i18n';
+
 import { RouteComponentProps } from 'react-router-dom';
 import {
   MINIMUM_DFI_AMOUNT_FOR_MASTERNODE,
@@ -25,6 +25,7 @@ import MasternodeTab from './components/MasternodeTab';
 import usePrevious from '../../components/UsePrevious';
 import Header from '../HeaderComponent';
 import { getPageTitle } from '../../utils/utility';
+import I18n from 'i18next';
 
 interface MasternodesPageProps extends RouteComponentProps {
   createMasterNode: () => void;

@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { I18n } from 'react-redux-i18n';
+
 import { CustomInput, FormGroup } from 'reactstrap';
+import I18n from 'i18next';
 import styles from '../../../WalletPage.module.scss';
 
 interface SendLPProps {

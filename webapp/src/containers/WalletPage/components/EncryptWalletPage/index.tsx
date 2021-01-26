@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { I18n } from 'react-redux-i18n';
+
 import { Button, Input, Row, Col } from 'reactstrap';
 import { MdLock } from 'react-icons/md';
 
 import styles from './encryptWalletPage.module.scss';
+import I18n from 'i18next';
 
 interface EncryptWalletModelProps {}
 

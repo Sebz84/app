@@ -1,13 +1,13 @@
 import React from 'react';
 import { Button, Col, Row } from 'reactstrap';
 import { MdCompareArrows } from 'react-icons/md';
-import { I18n } from 'react-redux-i18n';
 
 import SwapCard from '../../../../components/SwapCard';
 import styles from './swapTab.module.scss';
 import { ITokenBalanceInfo } from '../../../../utils/interfaces';
 import AddressDropdown from 'src/components/AddressDropdown';
 import { getTransactionAddressLabel } from 'src/utils/utility';
+import I18n from 'i18next';
 
 interface SwapTabProps {
   handleAddressDropdown?: any;

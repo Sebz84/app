@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Modal, ModalBody, ModalFooter, Button } from 'reactstrap';
+import I18n from 'i18next';
 import { restartNodeWithReIndexing, closeApp } from '../../../utils/isElectron';
 import { closeReIndexModal, isRestartLoader } from '../../PopOver/reducer';
-import { I18n } from 'react-redux-i18n';
 
 interface ReIndexModalProps {
   isReIndexModelOpen: boolean;

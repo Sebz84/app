@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { I18n } from 'react-redux-i18n';
+
 import { Popover, PopoverBody } from 'reactstrap';
+import I18n from 'i18next';
 import CopyToClipboard from '../CopyToClipboard';
 
 interface Props {

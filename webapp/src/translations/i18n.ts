@@ -1,8 +1,5 @@
-import {
-  loadTranslations,
-  setLocale,
-  syncTranslationWithStore,
-} from 'react-redux-i18n';
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 import enTranslationMessages from './languages/en.json';
 import deTranslationMessages from './languages/de.json';
 import frTranslationMessages from './languages/fr.json';
@@ -34,25 +31,37 @@ const formatTranslationMessages = (locale, messages) => {
   return Object.keys(messages).reduce(flattenFormattedMessages, {});
 };
 
-const translationsObject = {
-  [ENGLISH]: formatTranslationMessages(ENGLISH, enTranslationMessages),
-  [GERMAN]: formatTranslationMessages(GERMAN, deTranslationMessages),
-  [FRENCH]: formatTranslationMessages(FRENCH, frTranslationMessages),
-  [CHINESE_SIMPLIFIED]: formatTranslationMessages(
-    CHINESE_SIMPLIFIED,
-    zhsTranslationMessages
-  ),
-  [CHINESE_TRADITIONAL]: formatTranslationMessages(
-    CHINESE_TRADITIONAL,
-    zhtTranslationMessages
-  ),
-  [DUTCH]: formatTranslationMessages(DUTCH, nlTranslationMessages),
-  [RUSSIAN]: formatTranslationMessages(RUSSIAN, rsTranslationMessages),
+const resources = {
+  [ENGLISH]: {
+    translation: formatTranslationMessages(ENGLISH, enTranslationMessages),
+  },
+  [GERMAN]: {
+    translation: formatTranslationMessages(GERMAN, deTranslationMessages),
+  },
+  [FRENCH]: {
+    translation: formatTranslationMessages(FRENCH, frTranslationMessages),
+  },
+  [CHINESE_SIMPLIFIED]: {
+    translation: formatTranslationMessages(
+      CHINESE_SIMPLIFIED,
+      zhsTranslationMessages
+    ),
+  },
+  [CHINESE_TRADITIONAL]: {
+    translation: formatTranslationMessages(
+      CHINESE_TRADITIONAL,
+      zhtTranslationMessages
+    ),
+  },
+  [DUTCH]: {
+    translation: formatTranslationMessages(DUTCH, nlTranslationMessages),
+  },
+  [RUSSIAN]: {
+    translation: formatTranslationMessages(RUSSIAN, rsTranslationMessages),
+  },
 };
 
-export const setupI18n = (store) => {
-  syncTranslationWithStore(store);
-  store.dispatch(loadTranslations(translationsObject));
+export const setupI18n = () => {
   const storageLang = PersistentStore.get(LANG_VARIABLE);
   let locale = '';
   if (storageLang) {
@@ -65,7 +74,19 @@ export const setupI18n = (store) => {
     locale = lang;
   }
   PersistentStore.set(LANG_VARIABLE, locale);
-  store.dispatch(setLocale(getLocales(locale)));
+  i18n.use(initReactI18next).init({
+    lng: getLocales(locale),
+    resources,
+    interpolation: {
+      prefix: '%{',
+      suffix: '}',
+    },
+  });
+};
+
+export const changeLanguage = (lang: string) => {
+  PersistentStore.set(LANG_VARIABLE, lang);
+  i18n.changeLanguage(lang);
 };
 
 export const getLocales = (lang: string) => {

@@ -10,8 +10,9 @@ import {
   setQueueReady,
 } from './reducer';
 import { getRpcConfig, startAppInit, startBinary } from '../../app/service';
+import I18n from 'i18next';
 import showNotification from '../../utils/notifications';
-import { I18n } from 'react-redux-i18n';
+
 import {
   startNodeSuccess,
   startNodeFailure,

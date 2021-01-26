@@ -2,11 +2,12 @@
 
 import React from 'react';
 import { Card, Table, Input } from 'reactstrap';
-import { I18n } from 'react-redux-i18n';
+
 import { MdDelete, MdCropFree } from 'react-icons/md';
 
 import styles from './AddressList.module.scss';
 import { useState } from 'react';
+import I18n from 'i18next';
 
 interface AddressListProps {
   csvData: any;

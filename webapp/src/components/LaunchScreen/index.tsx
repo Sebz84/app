@@ -3,7 +3,7 @@ import style from './LaunchScreen.module.scss';
 import Loader from '../Loader';
 import LaunchLogo from '../Svg/Launch';
 import { PACKAGE_VERSION, APP_TITLE } from '../../constants';
-import { I18n } from 'react-redux-i18n';
+import I18n from 'i18next';
 
 interface LaunchScreenProps {
   message?: string;

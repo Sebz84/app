@@ -1,8 +1,9 @@
 import React from 'react';
 import { FormGroup, Label, Input } from 'reactstrap';
 import classnames from 'classnames';
-import { I18n } from 'react-redux-i18n';
+
 import { connect } from 'react-redux';
+import I18n from 'i18next';
 
 const SettingsRowToggle = (props) => {
   const { field, fieldName, label, handleToggles, hideMinimized } = props;
@@ -29,10 +30,7 @@ const SettingsRowToggle = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { locale } = state.i18n;
-  return {
-    locale,
-  };
+  return {};
 };
 
 export default connect(mapStateToProps)(SettingsRowToggle);

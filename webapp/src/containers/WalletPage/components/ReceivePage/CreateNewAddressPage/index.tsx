@@ -14,7 +14,7 @@ import {
   Col,
   CustomInput,
 } from 'reactstrap';
-import { I18n } from 'react-redux-i18n';
+
 import { MdArrowBack, MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 import { WALLET_RECEIVE_PATH } from '../../../../../constants';
 import { addReceiveTxnsRequest } from '../../../reducer';
@@ -27,6 +27,7 @@ import {
   isAddressMine,
   isValidAddress,
 } from '../../../../../utils/utility';
+import I18n from 'i18next';
 
 export interface PaymentRequestModel {
   label: string;

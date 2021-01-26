@@ -1,6 +1,6 @@
 import React from 'react';
 // import { CSVReader } from 'react-papaparse';
-import { I18n } from 'react-redux-i18n';
+
 import { MdGridOn } from 'react-icons/md';
 import { Button } from 'reactstrap';
 

@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { MdArrowUpward, MdArrowDownward } from 'react-icons/md';
 import styles from './WalletTxns.module.scss';
-import { I18n } from 'react-redux-i18n';
+
 import { fetchWalletTxnsRequest } from '../../reducer';
 import { WALLET_TXN_PAGE_SIZE } from '../../../../constants';
 import Pagination from '../../../../components/Pagination';
 import { getAmountInSelectedUnit } from '../../../../utils/utility';
 import { BLOCKCHAIN_BLOCK_BASE_PATH } from '../../../../constants';
+import I18n from 'i18next';
 
 interface WalletTxnsProps {
   unit: string;

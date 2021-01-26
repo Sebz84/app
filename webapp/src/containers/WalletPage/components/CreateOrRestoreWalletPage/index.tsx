@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { I18n } from 'react-redux-i18n';
+
 import { Col, Row } from 'reactstrap';
 import { MdAccountBalanceWallet, MdFormatListBulleted } from 'react-icons/md';
 import { connect } from 'react-redux';
@@ -18,6 +18,7 @@ import {
 import Header from '../../../HeaderComponent';
 import { checkRestartCriteriaRequestLoading } from '../../reducer';
 import { getPageTitle } from '../../../../utils/utility';
+import I18n from 'i18next';
 
 interface CreateOrRestoreWalletPageProps {
   history: any;

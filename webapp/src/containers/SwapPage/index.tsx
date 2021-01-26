@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classnames from 'classnames';
 import { NavLink as RRNavLink } from 'react-router-dom';
-import { I18n } from 'react-redux-i18n';
+
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import {
@@ -57,6 +57,7 @@ import openNewTab from '../../utils/openNewTab';
 import NumberMask from '../../components/NumberMask';
 import ViewOnChain from 'src/components/ViewOnChain';
 import { PaymentRequestModel } from '../WalletPage/components/ReceivePage/PaymentRequestList';
+import I18n from 'i18next';
 
 interface SwapPageProps {
   history?: any;

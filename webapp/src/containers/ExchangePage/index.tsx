@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { I18n } from 'react-redux-i18n';
+import I18n from 'i18next';
+
 import { getPageTitle } from '../../utils/utility';
 import Header from '../HeaderComponent';
 

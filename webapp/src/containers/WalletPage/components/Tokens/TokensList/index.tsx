@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink as RRNavLink, RouteComponentProps } from 'react-router-dom';
-import { I18n } from 'react-redux-i18n';
+
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import cloneDeep from 'lodash/cloneDeep';
@@ -21,6 +21,7 @@ import CreateOrRestoreWalletPage from '../../CreateOrRestoreWalletPage';
 import Header from '../../../../HeaderComponent';
 import { IToken } from 'src/utils/interfaces';
 import { getWalletPathAddress } from '../../SendPage';
+import I18n from 'i18next';
 interface WalletTokensListProps extends RouteComponentProps {
   tokens: IToken[];
   unit: string;

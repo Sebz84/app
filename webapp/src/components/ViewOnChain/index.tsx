@@ -1,6 +1,7 @@
 import React from 'react';
-import { I18n } from 'react-redux-i18n';
+
 import { Button } from 'reactstrap';
+import I18n from 'i18next';
 import { onViewOnChain } from 'src/utils/utility';
 
 interface ViewOnChainProps {

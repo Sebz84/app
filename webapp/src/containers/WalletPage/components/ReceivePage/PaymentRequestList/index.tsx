@@ -11,7 +11,7 @@ import {
   DropdownItem,
 } from 'reactstrap';
 import { connect } from 'react-redux';
-import { I18n } from 'react-redux-i18n';
+
 import { MdMoreHoriz, MdDelete } from 'react-icons/md';
 import styles from './PaymentRequestList.module.scss';
 import {
@@ -24,6 +24,7 @@ import CopyToClipboard from '../../../../../components/CopyToClipboard';
 import Pagination from '../../../../../components/Pagination';
 import EllipsisText from 'react-ellipsis-text';
 import { addHdSeedCheck } from '../../../saga';
+import I18n from 'i18next';
 
 export interface PaymentRequestModel {
   label: string;

@@ -84,7 +84,7 @@ import {
   isWalletCreated,
 } from '../../utils/utility';
 import { paginate, queuePush } from '../../utils/utility';
-import { I18n } from 'react-redux-i18n';
+
 import uniqBy from 'lodash/uniqBy';
 import cloneDeep from 'lodash/cloneDeep';
 import isEmpty from 'lodash/isEmpty';
@@ -104,6 +104,7 @@ import {
 import minBy from 'lodash/minBy';
 import orderBy from 'lodash/orderBy';
 import { uid } from 'uid';
+import I18n from 'i18next';
 
 export function* getNetwork() {
   const {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { I18n } from 'react-redux-i18n';
+
 import { Row, Col } from 'reactstrap';
 
 import cloneDeep from 'lodash/cloneDeep';
@@ -7,6 +7,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import Pagination from '../../../../components/Pagination';
 import { filterByValue } from '../../../../utils/utility';
 import { TOKEN_LIST_PAGE_SIZE } from '../../../../constants';
+import I18n from 'i18next';
 
 interface TokensListProps {
   tokens: any;

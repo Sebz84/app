@@ -1,8 +1,9 @@
 import React from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
-import { I18n } from 'react-redux-i18n';
+
 import classnames from 'classnames';
 import Header from '../../../HeaderComponent';
+import I18n from 'i18next';
 
 interface SettingsTabsHeaderProps {
   setActiveTab: (tab: string) => void;

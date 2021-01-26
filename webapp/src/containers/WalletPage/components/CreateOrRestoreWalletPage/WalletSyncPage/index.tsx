@@ -1,10 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { I18n } from 'react-redux-i18n';
+
 import { MdSync } from 'react-icons/md';
 import Header from '../../../../HeaderComponent';
 import styles from './walletSyncPage.module.scss';
 import { getPageTitle } from '../../../../../utils/utility';
+import I18n from 'i18next';
 
 const WalletSyncPage: React.FunctionComponent = () => {
   return (

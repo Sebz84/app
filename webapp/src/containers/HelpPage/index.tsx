@@ -4,7 +4,7 @@ import { FaTelegram } from 'react-icons/fa';
 import { GoMarkGithub } from 'react-icons/go';
 import { FaReddit } from 'react-icons/fa';
 import { MdHelp } from 'react-icons/md';
-import { I18n } from 'react-redux-i18n';
+
 import Header from '../HeaderComponent';
 import { RouteComponentProps } from 'react-router-dom';
 import { Row, Col, Card, CardBody, Button } from 'reactstrap';
@@ -20,6 +20,7 @@ import {
 } from '../../constants';
 import Logo from '../../components/Svg/DefiLogo';
 import { getPageTitle } from '../../utils/utility';
+import I18n from 'i18next';
 
 const HelpPage: React.FunctionComponent<RouteComponentProps> = (
   props: RouteComponentProps

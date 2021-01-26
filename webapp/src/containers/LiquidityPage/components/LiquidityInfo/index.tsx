@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink as RRNavLink, RouteComponentProps } from 'react-router-dom';
-import { I18n } from 'react-redux-i18n';
+
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import BigNumber from 'bignumber.js';
@@ -18,6 +18,7 @@ import {
   LIQUIDITY_PATH,
   REMOVE_LIQUIDITY_BASE_PATH,
 } from '../../../../constants';
+import I18n from 'i18next';
 
 interface RouteParams {
   poolID: string;

@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { I18n } from 'react-redux-i18n';
+
 import { ModalBody, ModalFooter, Button, Modal } from 'reactstrap';
 import { closeWalletDatBackupModal } from '../reducer';
 import { backupWalletDat } from '../../../app/service';
+import I18n from 'i18next';
 
 import styles from '../popOver.module.scss';
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink as RRNavLink, RouteComponentProps } from 'react-router-dom';
-import { I18n } from 'react-redux-i18n';
+
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import classnames from 'classnames';
@@ -40,6 +40,7 @@ import TokenAvatar from '../../../../components/TokenAvatar';
 import { getIcon, getPageTitle } from '../../../../utils/utility';
 import Header from '../../../HeaderComponent';
 import ViewOnChain from 'src/components/ViewOnChain';
+import I18n from 'i18next';
 
 interface RouteParams {
   id?: string;

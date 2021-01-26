@@ -1,5 +1,5 @@
 import React from 'react';
-import { I18n } from 'react-redux-i18n';
+
 import { NavLink } from 'react-router-dom';
 import classnames from 'classnames';
 import { MdCheckCircle, MdErrorOutline } from 'react-icons/md';
@@ -14,6 +14,7 @@ import { ITokenResponse } from '../../../../../../utils/interfaces';
 import Spinner from '../../../../../../components/Svg/Spinner';
 import { CreateTokenFormState } from '../..';
 import ViewOnChain from 'src/components/ViewOnChain';
+import I18n from 'i18next';
 
 interface CreateDCTProps {
   isUpdate: boolean;

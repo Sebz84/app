@@ -7,9 +7,10 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
-import { I18n } from 'react-redux-i18n';
+
 import { MdCheck } from 'react-icons/md';
 import { connect } from 'react-redux';
+import I18n from 'i18next';
 
 interface SettingsRowDropDownProps {
   label: string;
@@ -28,7 +29,7 @@ const getLabel = (
   value: string | number
 ) => {
   if (list.length > 0) {
-    const index = list.findIndex(obj => obj.value === value);
+    const index = list.findIndex((obj) => obj.value === value);
     if (index === -1) {
       return list[0].label;
     } else {
@@ -49,7 +50,7 @@ const SettingsRowDropDown = (props: SettingsRowDropDownProps) => {
             {I18n.t(getLabel(data, field))}
           </DropdownToggle>
           <DropdownMenu>
-            {data.map(object => {
+            {data.map((object) => {
               return (
                 <DropdownItem
                   className='d-flex justify-content-between'
@@ -71,11 +72,8 @@ const SettingsRowDropDown = (props: SettingsRowDropDownProps) => {
   );
 };
 
-const mapStateToProps = state => {
-  const { locale } = state.i18n;
-  return {
-    locale,
-  };
+const mapStateToProps = (state) => {
+  return {};
 };
 
 export default connect(mapStateToProps)(SettingsRowDropDown);

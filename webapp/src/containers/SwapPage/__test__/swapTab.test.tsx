@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../../../app/rootStore';
 import Enzyme from '../../../utils/testUtils/enzyme';
-import { I18n } from 'react-redux-i18n';
+import I18n from 'i18next';
 
 describe('SwapTab component', () => {
   it.skip('should check for snapshot', () => {

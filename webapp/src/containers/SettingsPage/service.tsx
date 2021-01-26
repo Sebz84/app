@@ -1,5 +1,5 @@
 import { isElectron, ipcRendererFunc } from '../../utils/isElectron';
-import { I18n } from 'react-redux-i18n';
+
 import * as log from '../../utils/electronLogger';
 import {
   LANG_VARIABLE,
@@ -51,6 +51,7 @@ import {
   PRELAUNCH_PREFERENCE_STATUS,
 } from '@defi_types/ipcEvents';
 import { handleGetPaymentRequest } from '../WalletPage/service';
+import I18n from 'i18next';
 
 export const getLanguage = () => {
   return [

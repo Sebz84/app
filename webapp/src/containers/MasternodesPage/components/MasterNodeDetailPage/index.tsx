@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
 import { Helmet } from 'react-helmet';
 import classnames from 'classnames';
-import { I18n } from 'react-redux-i18n';
+
 import { Button, ButtonGroup, Row, Col } from 'reactstrap';
 import {
   MdArrowBack,
@@ -19,6 +19,7 @@ import { resignMasterNode } from '../../reducer';
 import styles from '../../masternode.module.scss';
 import Header from '../../../HeaderComponent';
 import { getPageTitle } from '../../../../utils/utility';
+import I18n from 'i18next';
 interface RouteProps {
   hash: string;
 }

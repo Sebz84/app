@@ -3,7 +3,7 @@ import { NavLink as RRNavLink } from 'react-router-dom';
 import cloneDeep from 'lodash/cloneDeep';
 import { connect } from 'react-redux';
 import BigNumber from 'bignumber.js';
-import { I18n } from 'react-redux-i18n';
+
 import { MdAdd, MdInfoOutline, MdRemove } from 'react-icons/md';
 import {
   Card,
@@ -22,6 +22,7 @@ import {
   CREATE_POOL_PAIR_PATH,
   REMOVE_LIQUIDITY_BASE_PATH,
 } from '../../../../constants';
+import I18n from 'i18next';
 
 interface AvailablePoolPairsListProps {
   searchQuery: string;
