@@ -397,6 +397,7 @@ export function* restoreWallet(action) {
     PersistentStore.set(isWalletCreated, true);
     yield put(setIsWalletCreatedRequest(true));
     yield call(enableMenuResetWalletBtn, true);
+    yield put(fetchPaymentRequest());
     history.push(WALLET_TOKENS_PATH);
   } catch (e) {
     log.error(e.message);
