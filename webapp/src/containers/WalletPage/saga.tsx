@@ -104,6 +104,8 @@ import {
 import minBy from 'lodash/minBy';
 import orderBy from 'lodash/orderBy';
 import { uid } from 'uid';
+import { restartNode } from 'src/utils/isElectron';
+import { shutDownBinary } from 'src/worker/queue';
 
 export function* getNetwork() {
   const {
@@ -398,6 +400,8 @@ export function* restoreWallet(action) {
     yield put(setIsWalletCreatedRequest(true));
     yield call(enableMenuResetWalletBtn, true);
     yield put(fetchPaymentRequest());
+    yield call(shutDownBinary);
+    yield call(restartNode);
     history.push(WALLET_TOKENS_PATH);
   } catch (e) {
     log.error(e.message);
