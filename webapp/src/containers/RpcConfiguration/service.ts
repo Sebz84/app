@@ -8,19 +8,25 @@ import {
 } from '../../constants';
 import RpcClient from '../../utils/rpc-client';
 
-export const isBlockchainStarted = async (emitter, response) => {
+export const isBlockchainStarted = async (
+  emitter,
+  response,
+  isRPCOpen = true
+) => {
   let retryAttempt = RETRY_ATTEMPT;
   const rpcClient = new RpcClient();
   const intervalRef = setInterval(async () => {
     try {
-      const res = await rpcClient.isInitialBlockDownload();
-      if (res) {
-        emitter({
-          status: res,
-          message: BLOCKCHAIN_START_SUCCESS,
-          conf: response.data.conf,
-        });
-        clearInterval(intervalRef);
+      if (isRPCOpen) {
+        const res = await rpcClient.isInitialBlockDownload();
+        if (res) {
+          emitter({
+            status: res,
+            message: BLOCKCHAIN_START_SUCCESS,
+            conf: response.data.conf,
+          });
+          clearInterval(intervalRef);
+        }
       }
     } catch (err) {
       // Do not decrease retryAttempt in case of loading index

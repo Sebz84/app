@@ -20,9 +20,12 @@ const walletTokenBalanceSchedular = () => {
 };
 
 const pendingAndWalletBalance = () => {
-  walletBalanceSchedular();
-  walletTokenBalanceSchedular();
-  pendingBalanceSchedular();
+  const { app } = store.getState();
+  if (app.isRPCOpen) {
+    walletBalanceSchedular();
+    walletTokenBalanceSchedular();
+    pendingBalanceSchedular();
+  }
 };
 
 export const updateBalanceScheduler = () =>

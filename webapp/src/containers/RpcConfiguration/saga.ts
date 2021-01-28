@@ -8,6 +8,7 @@ import {
   startNodeRequest,
   storeConfigurationData,
   setQueueReady,
+  isRPCOpen,
 } from './reducer';
 import { getRpcConfig, startAppInit, startBinary } from '../../app/service';
 import showNotification from '../../utils/notifications';
@@ -49,6 +50,7 @@ export function* getConfig() {
     startAppInit();
     const res = yield call(getRpcConfig);
     if (res?.success) {
+      yield put(isRPCOpen({ isRPCOpen: true }));
       yield put({ type: getRpcConfigsSuccess.type, payload: res.data });
       yield put({ type: startNodeRequest.type });
       if (isElectron()) {

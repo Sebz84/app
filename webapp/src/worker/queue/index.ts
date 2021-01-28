@@ -7,6 +7,7 @@ import RpcClient from '../../utils/rpc-client';
 import store from '../../app/rootStore';
 import {
   isAppClosing,
+  isRPCOpen,
   killQueue,
 } from '../../containers/RpcConfiguration/reducer';
 import {
@@ -77,9 +78,12 @@ export const shutDownBinary = async () => {
     store.dispatch(killQueue());
     await q.kill();
     const rpcClient = new RpcClient();
+    store.dispatch(isRPCOpen({ isRPCOpen: false }));
     const result = rpcClient.stop();
-    log.info('Node shutdown successfully', LOGGING_SHUT_DOWN);
-    log.info(JSON.stringify(result));
+    log.info(
+      `Node shutdown successfully ${JSON.stringify(result)}`,
+      LOGGING_SHUT_DOWN
+    );
     return result;
   } catch (err) {
     log.error(JSON.stringify(err), LOGGING_SHUT_DOWN);

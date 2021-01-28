@@ -106,6 +106,7 @@ import orderBy from 'lodash/orderBy';
 import { uid } from 'uid';
 import { restartNode } from 'src/utils/isElectron';
 import { shutDownBinary } from 'src/worker/queue';
+import { history } from '../../utils/history';
 
 export function* getNetwork() {
   const {
@@ -353,7 +354,7 @@ export function* fetchAccountTokens() {
 export function* createWallet(action) {
   try {
     const {
-      payload: { mnemonicCode, history },
+      payload: { mnemonicCode },
     } = action;
 
     const networkType = getNetworkType();
@@ -377,7 +378,7 @@ export function* createWallet(action) {
 export function* restoreWallet(action) {
   try {
     const {
-      payload: { mnemonicObj, history },
+      payload: { mnemonicObj },
     } = action;
 
     const mnemonicCode = getMnemonicFromObj(mnemonicObj);
@@ -402,6 +403,8 @@ export function* restoreWallet(action) {
     yield put(fetchPaymentRequest());
     yield call(shutDownBinary);
     yield call(restartNode);
+    yield call(fetchInstantBalanceRequest);
+    yield call(fetchAccountTokensRequest);
     history.push(WALLET_TOKENS_PATH);
   } catch (e) {
     log.error(e.message);
@@ -501,8 +504,11 @@ function* fetchBlockDataForTrx(action) {
 
 function* checkRestartCriteria() {
   try {
-    const restartCriteria = yield call(handleRestartCriteria);
-    yield put(checkRestartCriteriaRequestSuccess(restartCriteria));
+    const { app } = store.getState();
+    if (app.isRPCOpen) {
+      const restartCriteria = yield call(handleRestartCriteria);
+      yield put(checkRestartCriteriaRequestSuccess(restartCriteria));
+    }
   } catch (err) {
     log.error(err, 'checkRestartCriteria');
     yield put(checkRestartCriteriaRequestFailure(err.message));

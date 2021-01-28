@@ -10,6 +10,7 @@ export const initialState = {
   configurationData: {},
   isQueueReady: false,
   isAppClosing: false,
+  isRPCOpen: true,
 };
 
 const configSlice = createSlice({
@@ -69,6 +70,9 @@ const configSlice = createSlice({
       state.isAppClosing = action.payload.isAppClosing;
       state.isFetching = action.payload.isAppClosing;
     },
+    isRPCOpen(state, action) {
+      state.isRPCOpen = action.payload.isRPCOpen;
+    },
   },
 });
 
@@ -85,6 +89,7 @@ export const {
   setQueueReady,
   killQueue,
   isAppClosing,
+  isRPCOpen,
 } = actions;
 
 export default reducer;

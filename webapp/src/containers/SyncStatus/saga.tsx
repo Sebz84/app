@@ -13,6 +13,7 @@ import { getBlockSyncInfo } from './service';
 import { eventChannel, END } from 'redux-saga';
 import { SYNC_TIMEOUT, SYNC_INFO_RETRY_ATTEMPT } from '../../constants';
 import { handlePeersSyncRequest } from 'src/utils/utility';
+import store from '../../app/rootStore';
 
 function* blockSyncInfo() {
   const chan = yield call(fetchBlockSyncInfo, SYNC_INFO_RETRY_ATTEMPT);
@@ -35,10 +36,13 @@ function fetchBlockSyncInfo(retryAttempt: number) {
   return eventChannel((emitter) => {
     const intervalRef = setInterval(async () => {
       try {
-        const res = await getBlockSyncInfo();
-        // reset retry attempt on success
-        retryAttempt = SYNC_INFO_RETRY_ATTEMPT;
-        emitter(res);
+        const { app } = store.getState();
+        if (app.isRPCOpen) {
+          const res = await getBlockSyncInfo();
+          // reset retry attempt on success
+          retryAttempt = SYNC_INFO_RETRY_ATTEMPT;
+          emitter(res);
+        }
       } catch (err) {
         retryAttempt--;
         log.error(err, 'fetchBlockSyncInfo');
