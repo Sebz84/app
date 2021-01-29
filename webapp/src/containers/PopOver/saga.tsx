@@ -19,7 +19,6 @@ import {
   closeResetWalletDatModal,
   startResetWalletDatRequest,
   setIsQueueResetRoute,
-  closeErrorModal,
 } from './reducer';
 import {
   autoLockTimer,
@@ -139,7 +138,6 @@ function* restartAndReplaceWallet() {
   yield call(replaceWalletDat);
   yield call(shutDownBinary);
   yield call(restartNode);
-  yield put(closeErrorModal());
   yield put(setIsQueueResetRoute(true));
 }
 
