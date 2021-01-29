@@ -38,7 +38,6 @@ import {
   IS_WALLET_LOCKED_MAIN,
   IS_WALLET_LOCKED_TEST,
   MAIN,
-  RESTART_BINARY_DELAY,
 } from '../../constants';
 import { replaceWalletDat } from '../../app/service';
 import { backupWallet } from '../../app/update.ipcRenderer';
@@ -139,9 +138,7 @@ function* restartAndReplaceWallet() {
   yield put(restartModal());
   yield call(replaceWalletDat);
   yield call(shutDownBinary);
-  yield delay(RESTART_BINARY_DELAY);
   yield call(restartNode);
-  yield delay(RESTART_BINARY_DELAY);
   yield put(closeErrorModal());
   yield put(setIsQueueResetRoute(true));
 }

@@ -161,15 +161,6 @@ export default class DefiProcessManager {
               )
             );
           }
-        } else {
-          if (event) {
-            return event.sender.send(
-              START_DEFI_CHAIN_REPLY,
-              responseMessage(false, {
-                isClosed: true,
-              })
-            );
-          }
         }
       });
     } catch (err) {

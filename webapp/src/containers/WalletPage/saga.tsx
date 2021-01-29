@@ -401,9 +401,7 @@ export function* restoreWallet(action) {
     yield put(setIsWalletCreatedRequest(true));
     yield call(enableMenuResetWalletBtn, true);
     yield call(shutDownBinary);
-    yield delay(RESTART_BINARY_DELAY);
     yield call(restartNode);
-    yield delay(RESTART_BINARY_DELAY);
     yield call(fetchInstantBalanceRequest);
     yield call(fetchAccountTokensRequest);
     yield call(fetchPaymentRequest);

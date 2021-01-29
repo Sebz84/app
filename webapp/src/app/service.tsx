@@ -60,7 +60,7 @@ export function startBinary(config: any) {
     const ipcRenderer = ipcRendererFunc();
     ipcRenderer.send(START_DEFI_CHAIN, config);
     ipcRenderer.on(START_DEFI_CHAIN_REPLY, async (_e: any, res: any) => {
-      if (res.success || res.isClosed) {
+      if (res.success) {
         const { app } = store.getState();
         isBlockchainStarted(emit, res, app?.isRPCOpen);
       } else {
