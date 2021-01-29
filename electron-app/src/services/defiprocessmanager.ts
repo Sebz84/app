@@ -95,7 +95,8 @@ export default class DefiProcessManager {
           nodeStarted = true;
           this.isStartedNode = true;
           log.info('Node started');
-          if (event)
+          if (event) {
+            log.info('Sending node started');
             return event.sender.send(
               START_DEFI_CHAIN_REPLY,
               responseMessage(true, {
@@ -103,6 +104,7 @@ export default class DefiProcessManager {
                 conf: this.getConfiguration(),
               })
             );
+          }
         }
       });
 

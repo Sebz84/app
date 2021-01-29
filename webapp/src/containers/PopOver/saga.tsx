@@ -1,4 +1,4 @@
-import { takeLatest, call, put } from 'redux-saga/effects';
+import { takeLatest, call, put, delay } from 'redux-saga/effects';
 
 import showNotification from '../../utils/notifications';
 import { getErrorMessage, getNetworkType } from '../../utils/utility';
@@ -19,6 +19,7 @@ import {
   closeResetWalletDatModal,
   startResetWalletDatRequest,
   setIsQueueResetRoute,
+  closeErrorModal,
 } from './reducer';
 import {
   autoLockTimer,
@@ -37,6 +38,7 @@ import {
   IS_WALLET_LOCKED_MAIN,
   IS_WALLET_LOCKED_TEST,
   MAIN,
+  RESTART_BINARY_DELAY,
 } from '../../constants';
 import { replaceWalletDat } from '../../app/service';
 import { backupWallet } from '../../app/update.ipcRenderer';
@@ -137,7 +139,10 @@ function* restartAndReplaceWallet() {
   yield put(restartModal());
   yield call(replaceWalletDat);
   yield call(shutDownBinary);
+  yield delay(RESTART_BINARY_DELAY);
   yield call(restartNode);
+  yield delay(RESTART_BINARY_DELAY);
+  yield put(closeErrorModal());
   yield put(setIsQueueResetRoute(true));
 }
 

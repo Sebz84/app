@@ -1,4 +1,4 @@
-import { call, put, takeLatest, select, all } from 'redux-saga/effects';
+import { call, put, takeLatest, select, all, delay } from 'redux-saga/effects';
 import * as log from '../../utils/electronLogger';
 import {
   fetchTokensSuccess,
@@ -94,6 +94,7 @@ import {
   IS_WALLET_CREATED_TEST,
   MAIN,
   MAX_WALLET_TXN_PAGE_SIZE,
+  RESTART_BINARY_DELAY,
   WALLET_TOKENS_PATH,
 } from '../../constants';
 import PersistentStore from '../../utils/persistentStore';
@@ -396,15 +397,17 @@ export function* restoreWallet(action) {
 
     yield call(setHdSeed, hdSeed);
     yield call(importPrivKey, hdSeed);
-    yield put({ type: restoreWalletSuccess.type });
     PersistentStore.set(isWalletCreated, true);
     yield put(setIsWalletCreatedRequest(true));
     yield call(enableMenuResetWalletBtn, true);
-    yield put(fetchPaymentRequest());
     yield call(shutDownBinary);
+    yield delay(RESTART_BINARY_DELAY);
     yield call(restartNode);
+    yield delay(RESTART_BINARY_DELAY);
     yield call(fetchInstantBalanceRequest);
     yield call(fetchAccountTokensRequest);
+    yield call(fetchPaymentRequest);
+    yield put({ type: restoreWalletSuccess.type });
     history.push(WALLET_TOKENS_PATH);
   } catch (e) {
     log.error(e.message);

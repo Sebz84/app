@@ -60,17 +60,15 @@ export function startBinary(config: any) {
     const ipcRenderer = ipcRendererFunc();
     ipcRenderer.send(START_DEFI_CHAIN, config);
     ipcRenderer.on(START_DEFI_CHAIN_REPLY, async (_e: any, res: any) => {
-      if (res.success) {
+      if (res.success || res.isClosed) {
         const { app } = store.getState();
         isBlockchainStarted(emit, res, app?.isRPCOpen);
       } else {
-        if (!res.isClosed) {
-          if (res.isReindexReq) {
-            store.dispatch(openReIndexModal());
-          }
-          log.error(res?.message ?? res, 'startBinary');
-          emit(res);
+        if (res.isReindexReq) {
+          store.dispatch(openReIndexModal());
         }
+        log.error(res?.message ?? res, 'startBinary');
+        emit(res);
       }
     });
     return () => {

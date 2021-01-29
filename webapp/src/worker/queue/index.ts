@@ -54,9 +54,11 @@ export const triggerNodeShutdown = async (
   ipcRenderer.removeAllListeners(STOP_BINARY_AND_QUEUE);
   if (isRunning()) {
     await shutDownBinary();
-  }
-  if (shouldCallMainProcess) {
-    return ipcRenderer.send(ON_CLOSE_RPC_CLIENT);
+    if (shouldCallMainProcess) {
+      return ipcRenderer.send(ON_CLOSE_RPC_CLIENT);
+    }
+  } else {
+    return ipcRenderer.send(FORCE_KILL_QUEUE_AND_SHUTDOWN);
   }
 };
 

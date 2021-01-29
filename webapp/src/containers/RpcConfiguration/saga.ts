@@ -27,13 +27,16 @@ import { fetchPaymentRequest } from '../WalletPage/reducer';
 import { fetchChainInfo } from '../WalletPage/saga';
 import { enableMenuResetWalletBtn } from '../../app/update.ipcRenderer';
 import { history } from '../../utils/history';
-import { WALLET_TOKENS_PATH } from '../../constants';
+import { BLOCKCHAIN_START_SUCCESS, WALLET_TOKENS_PATH } from '../../constants';
 
 function* blockChainNotStarted(message) {
   const { isRunning } = yield select((state) => state.app);
+  log.error(
+    `${message ?? ''} ${isRunning ? ' running ' : ''}`,
+    'startNodeFailure - blockChainNotStarted'
+  );
   if (!isRunning) {
     yield put(startNodeFailure(message));
-    log.error(`${message ?? ''}`, 'startNodeFailure - blockChainNotStarted');
   } else yield put(openErrorModal());
 }
 
@@ -57,7 +60,12 @@ export function* getConfig() {
         const chan = yield call(startBinary, res.data);
         while (true) {
           const blockchainStatus = yield take(chan);
-          if (blockchainStatus.status) {
+          log.info(`blockchainStatus:`);
+          log.info(blockchainStatus);
+          if (
+            blockchainStatus.status ||
+            blockchainStatus === BLOCKCHAIN_START_SUCCESS
+          ) {
             yield put(startNodeSuccess());
             yield put(closeRestartLoader());
             yield put(storeConfigurationData(blockchainStatus.conf));
