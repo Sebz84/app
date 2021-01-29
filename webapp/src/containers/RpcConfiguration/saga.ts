@@ -36,8 +36,12 @@ function* blockChainNotStarted(message) {
     'startNodeFailure - blockChainNotStarted'
   );
   if (!isRunning) {
+    log.error(`${message ?? ''}`, 'blockChainNotStarted - Not Running');
     yield put(startNodeFailure(message));
-  } else yield put(openErrorModal());
+  } else {
+    log.error(`Node is disconnected`, 'blockChainNotStarted - Running');
+    yield put(openErrorModal());
+  }
 }
 
 function* resetAppRoute() {
@@ -60,12 +64,8 @@ export function* getConfig() {
         const chan = yield call(startBinary, res.data);
         while (true) {
           const blockchainStatus = yield take(chan);
-          log.info(`blockchainStatus:`);
-          log.info(blockchainStatus);
-          if (
-            blockchainStatus.status ||
-            blockchainStatus === BLOCKCHAIN_START_SUCCESS
-          ) {
+          log.info(blockchainStatus, 'Blockchain Status');
+          if (blockchainStatus.status) {
             yield put(startNodeSuccess());
             yield put(closeRestartLoader());
             yield put(storeConfigurationData(blockchainStatus.conf));
