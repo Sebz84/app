@@ -288,6 +288,16 @@ const SwapPage: React.FunctionComponent<SwapPageProps> = (
     });
   };
 
+  const showErrorMessage = (swapToErr, swapFromErr) => {
+    if (swapToErr) {
+      return swapToErr;
+    } else if (swapFromErr) {
+      return swapFromErr;
+    } else {
+      return I18n.t('containers.swap.swapPage.somethingWentWrong');
+    }
+  };
+
   const handleAddressDropdown = (data: any) => {
     setFormState({
       ...formState,
@@ -632,7 +642,10 @@ const SwapPage: React.FunctionComponent<SwapPageProps> = (
                 ) : (
                   <Col className='col-auto'>
                     <span className='text-danger'>
-                      {I18n.t('containers.swap.swapPage.somethingWentWrong')}
+                      {showErrorMessage(
+                        isErrorTestPoolSwapTo,
+                        isErrorTestPoolSwapFrom
+                      )}
                     </span>
                   </Col>
                 )}

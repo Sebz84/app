@@ -189,6 +189,7 @@ export default class DefiProcessManager {
       log.info('[Stop Node] Start DeFiProcessManager shutdown...');
       const pid = getFileData(PID_FILE_NAME);
       while (true) {
+        log.info('Attempting Defi Process Manager Stop...');
         const processLists: any = await getProcesses({
           pid: parseInt(pid, 10),
         });
